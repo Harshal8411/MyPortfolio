@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portpolio</title>
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <!-- https://releases.jquery.com/ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+.max-width{
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+/* .navbar styling */
+
+.navbar{
+    position: fixed;
+    width: 100%;
+    padding: 30px 0;
+    z-index: 999;
+    font-family: 'Ubuntu', sans-serif;
+    transition: all 0.3s ease;
+}
+.navbar.sticky{
+    padding: 15px 0;
+    background-color: crimson;
+}
+.navbar .max-width{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar .logo a{
+    color: white;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.navbar .logo a span{
+    color: crimson;
+    transition: all 0.3s ease;
+
+}
+.navbar.sticky .logo a span{
+    color: #fff;
+}
+.navbar .menu li{
+    list-style: none;
+    display: inline-block;
+}
+.navbar .menu li a{
+    display: block;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 25px;
+    transition: all 0.3s ease;
+}
+
+.navbar .menu li a:hover{
+    color: crimson;
+}
+
+.navbar.sticky .menu li a:hover{
+    color: #fff;
+} 
+/* menu btn styling  */
+.menu-btn{
+    color: #fff;
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+}
+
+.scroll-up-btn{
+    position: fixed;
+    height: 45px;
+    width: 42px;
+    background: crimson;
+    right: 30px;
+    bottom: 10px;
+    text-align: center;
+    line-height: 45px;
+    color: #fff;
+    z-index: 999;
+    font-size: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.scroll-up-btn.show{
+    bottom: 30px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Home styling section  */
+
+ .home{
+    display: flex;
+    background: url(public/img/banner-2.jpg) no-repeat center fixed;
+    height: 100vh;
+    background-size: cover;
+    /* background-attachment: fixed; */
+    color: #fff;
+    min-height: 500px;
+    font-family: 'Ubuntu', sans-serif;
+
+}
+.home .max-width{
+    margin: auto 0 auto 40px;
+}
+
+.home .home-content .text-1{
+    font-size: 27px;
+    animation-delay: 0.3s;
+}
+
+.home .home-content .text-2{
+    font-size: 75px;
+    font-weight: 600;
+    margin-left: 3px;
+    animation-delay: 1s;
+}
+.home .home-content .text-3{
+    font-size: 40px;
+    margin: 5px 0;
+    animation-delay: 1.5s;
+}
+
+.home .home-content .text-3 span{
+    color: crimson;
+    font-weight: 500;
+} 
+
+.home .home-content a{
+    display: inline-block;
+    background-color: crimson;
+    color: #fff;
+    font-size: 25px;
+    padding: 12px 36px;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 2px solid crimson;
+    transition: all 0.3s ease;
+    animation-delay: 2s;
+}
+
+.home .home-content a:hover{
+    color: #fff;
+    background: none;
+}
+.home .anim{
+    opacity: 0;
+    transform: translateY(30px);
+    animation: moveup 0.3s linear forwards;
+}
+@keyframes moveup{
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* all si,ilar styling code  */
+.about, .services, .skills, .teams, .contact{
+    font-family: 'Popins', sans-serif;
+}
+
+.about .about-content, .services .services-content, .skills .skill-content, .contact .contact-content, footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+section{
+    padding: 100px 0;
+}
+
+section .title{
+    position: relative;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+section .title::before{
+    content: "";
+    position: absolute;
+    height: 3px;
+    bottom: 0;
+    width: 180px;
+    left: 50%;
+    background: black;
+    transform: translateX(-50%);
+}
+
+section .title::after{
+    
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    font-size: 20px;
+    color: crimson;
+    padding: 5px;
+    background: #fff;
+    transform: translateX(-50%);
+    
+}
+
+/* About styling  */
+
+
+
+.about .title::after{
+    content: "Who I am";
+
+}
+
+
+.about .about-content .left{
+    width: 45%;
+}
+
+.about .about-content .left img{
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.about .about-content .right{
+    width: 55%;
+}
+
+.about .about-content .right .text{
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.about .about-content .right .text span{
+    color: crimson;
+}
+
+.about .about-content .right p{
+    text-align: justify;
+}
+
+.about .about-content .right a{
+    display: inline-block;
+    background-color: crimson;
+    color: #fff;
+    font-weight: 500;
+    font-size: 20px;
+    padding: 10px 30px;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 2px solid crimson;
+    transition: all 0.3s ease;
+}
+
+.about .about-content .right a:hover{
+    background: none;
+    color: crimson;
+}
+
+/* services styling  */
+.services, .teams{
+    background: #111;
+    color: #fff;
+}
+
+.services .title::before, .teams .title::before{
+    background:#fff;
+}
+
+.services .title::after{
+    background: #111;
+    content: "What i provide";
+
+}
+
+.services .services-content .card{
+    width: calc(33% - 20px);
+    background: #222;
+    text-align: center;
+    border-radius: 6px;
+    padding: 20px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+
+.services .services-content .card .box{
+    transition: all 0.3s ease;
+}
+
+.services .services-content .card:hover{
+    background: crimson;
+}
+
+
+.services .services-content .card:hover .box{
+    transform: scale(1.05);
+}
+
+.services .services-content .card i{
+    font-size: 50px;
+    color: crimson;
+    transition: color 0.3s ease ;
+}
+
+.services .services-content .card:hover i{
+    color: #fff;
+}
+
+.services .services-content .card .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+}
+
+/* skill styling  */
+
+.skills .title::after{
+    content: "What i Know";
+}
+
+.skills .skill-content .colume{
+    width: calc(50% - 30px);
+}
+
+.skills .skill-content .left .text{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.skills .skill-content .left p{
+    text-align: justify;
+}
+
+.skills .skill-content .left a{
+    display: inline-block;
+    background-color: crimson;
+    color: #fff;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 8px 16px;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 2px solid crimson;
+    transition: all 0.3s ease;
+}
+
+.skills .skill-content .left a:hover{
+    background: lightgray;
+    color: crimson;
+    font-weight: 600;
+}
+.skills .skill-content .right .bars{
+    margin-bottom: 15px;
+}
+
+.skills .skill-content .right .info{
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.skills .skill-content .right span{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.skills .skill-content .right .line{
+    height: 5px;
+    background: lightgray;
+    width: 100%;
+    position: relative;
+}
+
+.skills .skill-content .right .line::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: crimson;
+}
+
+.skills .skill-content .right .HTML::before{
+    width: 90%;
+}
+
+.skills .skill-content .right .CSS::before{
+    width: 60%;
+}
+.skills .skill-content .right .js::before{
+    width: 50%;
+}
+.skills .skill-content .right .py::before{
+    width: 30%;
+}
+.skills .skill-content .right .sql::before{
+    width: 10%;
+}
+
+/* teams styling  */
+
+.teams .title::after{
+    background: #111;
+    content: "Who i am";
+}
+
+.teams .carousel .card{
+    background: #222;
+    border-radius: 6px;
+    padding: 25px 35px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.teams .carousel .card:hover{
+    background: crimson;
+}
+
+.teams .carousel .card .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+}
+.teams .carousel .card .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+}
+
+.teams .carousel .card:hover .box{
+    transform: scale(1.05);
+}
+
+.teams .carousel .card img{
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid crimson;
+    transition: all 0.3s ease;
+}
+
+.teams .carousel .card:hover img{
+    border-color: #fff;
+}
+
+.owl-dots{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.owl-dot{
+    height: 13px;
+    width: 13px;
+    margin: 0 5px;
+    outline: none!important;
+    border-radius: 50%;
+    border: 2px solid crimson!important;
+    transition: all 0.3s ease;
+}
+
+.owl-dot.active{
+    width: 35px;
+    border-radius: 14px;
+}
+
+
+.owl-dot.active, .owl-dot:hover{
+    background: crimson!important;
+
+}
+
+/* contact styling  */
+
+.contact .title::after{
+    content: "get to touch";
+}
+
+.contact .contact-content .colume{
+    width: calc(50% - 30px);
+}
+
+.contact .contact-content .text{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.contact .contact-content .left p{
+    text-align: justify;
+}
+
+.contact .contact-content .left .icons{
+    margin: 10px 0;
+}
+
+.contact .contact-content .row{
+    display: flex;
+    height: 65px;
+    align-items: center;
+}
+
+.contact .contact-content .row .info{
+    margin-left: 30px;
+}
+
+.contact .contact-content .row i{
+    font-size: 25px;
+    color: crimson;
+}
+
+.contact .contact-content .info .head{
+    font-size: 16px;
+    font-weight: 600;
+    
+}
+
+.contact .contact-content .info .sub-title{
+    color: #333;
+}
+
+.contact .right form .field{
+    display: flex;
+}
+
+.contact .right form .field,
+.contact .right form .field .field{
+    height: 45px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.contact .right form .textarea{
+    height: 80px;
+    width: 100%;
+}
+
+.contact .right form .field .name{
+    margin-right: 10px;
+}
+
+.contact .right form .field .email{
+    margin-left: 10px;
+}
+
+.contact .right form .field input, .contact .right form .textarea textarea{
+    height: 100%;
+    width: 100%;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    outline: none;
+    padding: 0 15px;
+    font-size: 17px;
+    font-family: 'Popins', sans-serif;
+}
+
+.contact .right form .textarea textarea{
+    padding-top: 10px;
+}
+
+.contact .right form .button{
+    height: 47px;
+    width: 170px;
+}
+
+.contact .right form .button button{
+    height: 100%;
+    width: 100%;
+    border: 2px solid crimson;
+    background: crimson;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact .right form .button button:hover{
+    color: crimson;
+    background: none;
+}
+
+/* footer styling  */
+
+footer{
+    background: #111;
+    padding: 20px 23px;
+    color: #fff;
+}
+
+footer span a{
+    color: crimson;
+    text-decoration: none;
+}
+
+footer span a:hover{
+    text-decoration: underline;
+}
+/* responsive media query start  */
+
+@media (max-width:1300px){
+    .home .max-width{
+        margin-left: 0px;
+    }
+}
+@media (max-width:1104px){
+    .about .about-content .left img{
+        height: 350px;
+        width: 350px;
+        
+    }
+}
+
+@media (max-width:991px){
+    .max-width{ 
+        padding: 0 50px;   
+    }
+}
+
+@media (max-width:947px){
+
+    .menu-btn{
+        display: block;
+        z-index: 999;
+    }
+
+    .menu-btn i.active::before{
+        content: "\f00d";
+    }
+
+    .navbar .menu {
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        top: 0;
+        left: -100%;
+        background: #111;
+        text-align: center;
+        padding-top: 80px;
+        transition: all 0.3s ease;
+    }
+
+    .navbar .menu.active{
+        left: 0;
+    }
+
+    .navbar .menu li{
+        display: block;
+    }
+
+    .navbar .menu li a{
+        display: inline-block;
+        margin: 20px 0;
+        font-size: 25px;
+    }
+
+    .home .home-content .text-2{
+        font-size: 70px;
+        
+    }
+    .home .home-content .text-3{
+        font-size: 35px;
+    }
+
+    .home .home-content a{
+        font-size: 23px;
+        padding: 10px 30px;
+    }
+
+    .max-width{
+        max-width: 800px;    
+    }
+
+    .about .about-content .colume{
+        width: 100%;
+    }
+
+    .about .about-content .left{
+        display: flex;
+        justify-content: center;
+        margin: 0 auto 60px;
+    }
+
+    .about .about-content .right{
+        flex: 100%;
+    }
+
+    .services .services-content .card{
+        width: calc(50% - 10px);
+        margin-bottom: 20px;
+    }
+
+    .skills .skill-content .colume{
+        width: 100%;
+    }
+
+    .skills .skill-content .right,
+    .contact .contact-content .colume{
+        margin-top: 35px;
+    }
+
+}
+
+@media (max-width:690px){
+    .max-width{ 
+        padding: 0 23px;   
+    }
+
+    .home .home-content .text-2{
+        font-size: 60px;
+        
+    }
+    .home .home-content .text-3{
+        font-size: 32px;
+    }
+
+    .home .home-content a{
+        font-size: 20px;
+    }
+
+    .services .services-content .card{
+        width: 100%;
+        
+    }
+}
+
+@media (max-width:500px){
+    .home .home-content .text-2{
+        font-size: 50px;
+        
+    }
+    .home .home-content .text-3{
+        font-size: 27px;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="scroll-up-btn">
+        <i class="fas fa-angle-up"></i>
+    </div>
+    <header class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="#home">PortFo<span>lio.</span></a></div>
+            <ul class="menu">
+                <li><a href="#home" class="menu-btn">Home</a></li>
+                <li><a href="#about" class="menu-btn">About</a></li>
+                <li><a href="#services" class="menu-btn">Services</a></li>
+                <li><a href="#skill" class="menu-btn">Skills</a></li>
+                <li><a href="#teams" class="menu-btn">Teams</a></li>
+                <li><a href="#contact" class="menu-btn">Contact</a></li>
+            </ul>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+<!-- Home section  -->
+    <section class="home" id="home">
+        <div class="max-width">
+            <div class="home-content">
+                <div class="text-1 anim">Hello, My name is</div>
+                <div class="text-2 anim">Harsh Shastrakar</div>
+                <div class="text-3 anim">And, I'm a <span class="typing"></span></div>  
+                <a href="#" class="anim">Hire me</a>   
+            </div>
+        </div>
+    </section>
+    
+    <!-- about section  -->
+    <section class="about" id="about">
+        <div class="max-width">
+            <h2 class="title">About Me</h2>
+            <div class="about-content">
+                <div class="colume left">
+                    <img src="public/img/profe.jpg" alt="">
+                </div>  
+                <div class="colume right">
+                    <div class="text">I'm Harsh and I'm a <span class="typing-2"></span></div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo soluta qui, alias provident itaque quas mollitia cupiditate doloremque, veritatis doloribus saepe iusto odit? Autem, corrupti ipsum iure quod libero, eligendi veniam voluptate esse dolorum natus nulla fugiat doloribus iste consequuntur at, atque iusto a officia nesciunt assumenda suscipit aperiam. Consequatur fugit illum consectetur eos voluptas at nisi, incidunt voluptatibus atque!</p>
+                    <a href="#">Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- services section  -->
+    <section class="services" id="services">
+        <div class="max-width">
+            <h2 class="title">My Services</h2>
+            <div class="services-content">
+                <div class="card">
+                    <div class="box">
+                        <i class="fas fa-paint-brush"></i>
+                        <div class="text">Web Design</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, molestiae amet. Recusandae sunt reiciendis nulla.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="text">Advertising</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, molestiae amet. Recusandae sunt reiciendis nulla.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <i class="fas fa-code"></i>
+                        <div class="text">Apps Design</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, molestiae amet. Recusandae sunt reiciendis nulla.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- skill section  -->
+    <section class="skills" id="skill">
+        <div class="max-width">
+            <h2 class="title">My Skills</h2>
+            <div class="skill-content">
+                <div class="colume left">
+                    <div class="text">My creative skills & experience.</div>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas, voluptates dicta culpa, repellat distinctio suscipit tempora vero temporibus recusandae voluptate dolores corrupti incidunt quasi nesciunt. Doloribus ab nihil, in at beatae reprehenderit facilis totam hic! Reprehenderit obcaecati quod, numquam maxime adipisci recusandae exercitationem ad! Nobis saepe deserunt labore modi exercitationem, fugit dolorum aliquid, vitae cupiditate sit optio, explicabo voluptatibus in.</p>   
+                    <a href="#">Read More</a>
+                </div>
+                <div class="colume right">
+                    <div class="bars">
+                        <div class="info">
+                            <span>HTML</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="line HTML"></div>
+                    </div>
+                    <div class="bars">
+                        <div class="info">
+                            <span>CSS</span>
+                            <span>60%</span>
+                        </div>
+                        <div class="line CSS"></div>
+
+                    </div>
+                    <div class="bars">
+                        <div class="info">
+                            <span>Javascript</span>
+                            <span>50%</span>
+                        </div>
+                        <div class="line js"></div>
+                    </div>
+                    <div class="bars">
+                        <div class="info">
+                            <span>Python</span>
+                            <span>30%</span>
+                        </div>
+                        <div class="line py"></div>
+                    </div>
+                    <div class="bars">
+                        <div class="info">
+                            <span>MySQL</span>
+                            <span>10%</span>
+                        </div>
+                        <div class="line sql"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- teams secton  -->
+    <section class="teams" id="teams">
+        <div class="max-width">
+            <h2 class="title">My teams</h2>
+            <div class="carousel owl-carousel">
+                <div class="card">
+                    <div class="box">
+                        <img src="public/img/elon musk.jpg" alt="">
+                        <div class="text">Elon Musk</div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <img src="public/img/bill gates.jpg" alt="">
+                        <div class="text">Bill Gates</div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <img src="public/img/sundar pichai.jpg" alt="">
+                        <div class="text">Sundar Pichai</div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <img src="public/img/warren buffett.jpg" alt="">
+                        <div class="text">Warren Buffett</div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <img src="public/img/Jeff bezos.jpg" alt="">
+                        <div class="text">Jeff Bezos</div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- contact section  -->
+    <section class="contact" id="contact">
+        <div class="max-width">
+            <h2 class="title">contact me</h2>
+            <div class="contact-content">
+                <div class="colume left">
+                    <div class="text">Get in Touch</div>
+                    <p>I need to celebrate life because I'm in a good spot, I work hard, and I am happy with who I am and happy with what I do for a living, and sometimes I just focus and overwhelm myself so much with the fights and getting better, that I just need to slow it down and enjoy life and enjoy training.</p>
+                    <div class="icons">
+                        <div class="row">
+                            <i class="fas fa-user"></i>
+                            <div class="info">
+                                <div class="head">Name</div>
+                                <div class="sub-title">Harsh Shastrakar</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="info">
+                                <div class="head">Address</div>
+                                <div class="sub-title"> Near Reasoni Clg, Nagpur</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <i class="fas fa-envelope"></i>
+                            <div class="info">
+                                <div class="head">Email</div>
+                                <div class="sub-title">harshalshastrakar011@gmail.com</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="colume right">
+                    <div class="text">Message me</div>
+                    <form action="#">
+                        <div class="field">
+                            <div class="field name">
+                                <input type="text" placeholder="Name" required>
+                            </div>
+                            <div class="field email">
+                                <input type="email" placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <input type="text" placeholder="Subject" required>
+                        </div>
+                        <div class="field textarea">
+                            <textarea name="" id="" cols="30" rows="10" placeholder="Describe Project.." required></textarea>
+                        </div>
+                        <div class="button">
+                            <button type="submit">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer section  -->
+    <footer>
+        <span>Created By <a href="#">Coding_Harsh</a> | <span class="far fa-copyright"></span> 2022 All reserved</span>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
